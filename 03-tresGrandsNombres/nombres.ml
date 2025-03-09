@@ -72,9 +72,12 @@ let () =
 
 (** [signature tree] est la signature de tree *)
 let rec signature tree =
-  failwith "TODO"
-
-
+  match tree with
+  | Zero -> 0
+  | Un -> 1
+  | Node(g,p,d) -> if p mod 2 = 1 then
+    ((signature g) + (Suites.u 20) * signature d) mod 97
+  else ((signature g) + (Suites.u 30) * signature d) mod 97
 
 
 
