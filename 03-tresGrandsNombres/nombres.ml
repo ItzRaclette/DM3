@@ -30,7 +30,10 @@ let    ex_818 = Node (cinquante, trois, trois)
 
 (** [eval tree] est l'entier encodé par [tree] *)
 let rec eval tree =
-  failwith "TODO"
+  match tree with
+  | Zero -> 0
+  | Un -> 1
+  | Node(g, p, d) -> eval g * eval p + eval d
 
 
 (* Test de eval sur les exemples de l'énoncé *)
@@ -42,7 +45,7 @@ let () =
 (** [trouve_p n] vaut la valeur de p dans le triplet (g, p, d)
     correspondant à [n] *)
 let trouve_p n =
-  failwith "TODO"
+  Float.log2 
 
 
 (** [of_int n] est l'arbre ternaire associé à [n] *)
