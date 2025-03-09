@@ -79,27 +79,32 @@ let rec signature tree =
     ((signature g) + (Suites.u 20) * signature d) mod 97
   else ((signature g) + (Suites.u 30) * signature d) mod 97
 
+(***************************)
+(* Q 10 *)
+(***************************)
+let t k n = 
+  of_int (Suites.v k n)
 
+let a = signature (t 1 10) 
+let b = signature (t 2 20) 
+let c = signature (t 32 30) 
+let d = signature (t 61 40) 
 
+(***************************)
+(* Q 11 *)
+(***************************)
 
+let s_11 k = 
+  signature (of_int (Suites.h (Suites.v k 7*k)))
 
+let a11 =s_11 0
+let b11 =s_11 2
+let c11 =s_11 4
+let d11 =s_11 8
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(***************************)
+(* Q 12 *)
+(***************************)
 
 
 
