@@ -44,13 +44,19 @@ let () =
 
 (** [trouve_p n] vaut la valeur de p dans le triplet (g, p, d)
     correspondant à [n] *)
+let rec interm p n =
+   if Suites.x p > n then p - 1 else interm (p+1) n
+
 let trouve_p n =
-  Float.log2 
+  if n < 2 then failwith "pas de p associe" else interm 0 n
 
 
 (** [of_int n] est l'arbre ternaire associé à [n] *)
 let rec of_int n =
-  failwith "TODO"
+  if n = 0 then Zero else
+    if n = 1 then Un else
+      let x_p = Suites.x p in
+        Node(of_int (n mod x_p), of_int (trouve_p n), of_int (n / x_p))
 
 
 (* Test de of_int sur les exemples de l'énoncé *)
