@@ -74,7 +74,7 @@ let () =
 let rec signature tree =
   match tree with
   | Zero -> 0
-  | Un -> 1
+  | Un -> (Suites.u 10) mod 97
   | Node(g,p,d) -> if p mod 2 = 1 then
     ((signature g) + (Suites.u 20) * signature d) mod 97
   else ((signature g) + (Suites.u 30) * signature d) mod 97
@@ -106,7 +106,9 @@ let d11 =s_11 8
 (* Q 12 *)
 (***************************)
 
-
+let rec gen k n =
+  if n = 0 then Zero else
+    if n = 1 then Un else
 
 
 
